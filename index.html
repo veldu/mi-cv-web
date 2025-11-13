@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu Nombre - Desarrollador Web</title>
+  </head>
+  
+  <!-- Solo una etiqueta <body> -->
+  <body>
+    <!-- 1. Sección de Timeline -->
+    <section class="timeline">
+      <h2 class="timeline-title">Experiencia</h2>
+
+      <!-- El contenedor ABRE aquí -->
+      <div class="timeline-container">
+        
+        <!-- Las líneas de progreso (vacías) -->
+        <div class="timeline-track"></div>
+        <div class="timeline-progress"></div>
+
+        <!-- ITEM 1: Desarrollador Frontend -->
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <!-- El Header Clicable -->
+            <div class="card-header">
+              <h3 class="card-title">Desarrollador Frontend</h3>
+              <p class="card-company">Tech Solutions | 2022 - Presente</p>
+              <span class="card-cta">Ver más</span>
+            </div>
+            <!-- El Contenido que se expande -->
+            <div class="card-description">
+              <p>
+                Lideré la migración a Next.js, mejorando el LCP en un 40%. También
+                desarrollé un sistema de componentes interno en TypeScript y Storybook.
+              </p>
+              <!-- Las Sub-Tarjetas "Hijo" -->
+              <div class="card-sub-items">
+                <div class="sub-item">
+                  <strong>Proyecto:</strong> Migración a Next.js 14
+                </div>
+                <div class="sub-item">
+                  <strong>Logro:</strong> +40% LCP (Largest Contentful Paint)
+                </div>
+                <div class="sub-item">
+                  <strong>Feature:</strong> Sistema de componentes en Storybook
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Cierre ITEM 1 -->
+
+        <!-- ITEM 2: Desarrollador Junior -->
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <!-- El Header Clicable -->
+            <div class="card-header">
+              <h3 class="card-title">Desarrollador Junior</h3>
+              <p class="card-company">Web Innovate | 2020 - 2022</p>
+              <span class="card-cta">Ver más</span>
+            </div>
+            <!-- El Contenido que se expande -->
+            <div class="card-description">
+              <p>
+                Mi primer rol profesional. Aprendí las bases de React y trabajé en el
+                mantenimiento de la web corporativa, resolviendo más de 200 tickets de
+                bugs y features menores.
+              </p>
+              <!-- Aquí no hemos puesto sub-items, pero podrías añadirlos -->
+            </div>
+          </div>
+        </div>
+        <!-- Cierre ITEM 2 -->
+
+        <!-- (He borrado la tarjeta vacía que tenías en medio) -->
+
+      </div>
+      <!-- El contenedor CIERRA aquí -->
+    </section>
+    <!-- Cierre .timeline -->
+
+    <!-- 2. Sección del Donut 3D -->
+    <section class="section-3d-container">
+      <div class="canvas-holder">
+        <canvas id="mi-canvas-3d"></canvas>
+      </div>
+      <div class="content-3d">
+        <div class="text-stack">
+          <p class="about-text text-1">
+            Soy un <strong>desarrollador</strong> apasionado por la web.
+          </p>
+          <p class="about-text text-2">
+            Con un ojo para el <strong>diseño minimalista</strong> y la UX.
+          </p>
+          <p class="about-text text-3">
+            Y obsesionado con crear <strong>experiencias memorables</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Sección de Contacto -->
+    <section class="contact next-section">
+      <h2 class="contact-title">Contacto</h2>
+      <div class="contact-list">
+        <a href="httpsRELINKEDIN" target="_blank" class="contact-item">
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.75c0-1.4-1.1-2.5-2.5-2.5S11 12.85 11 14.25V19h-3v-9h2.9v1.35C11.4 10.6 12.6 10 14 10c2.2 0 4 1.8 4 4v5z"></path></svg>
+          <span class="contact-text">LinkedIn</span>
+        </a>
+        <a href="mailto:tu@correo.com" class="contact-item">
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zM4 6l8 5 8-5v2l-8 5-8-5z"></path></svg>
+          <span class="contact-text">Correo</span>
+        </a>
+        <a href="tel:+34000000000" class="contact-item">
+          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C9.39 21 3 14.61 3 6c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+          <span class="contact-text">Teléfono</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. Script (Único y al final) -->
+    <script type="module" src="/src/main.ts"></script>
+    
+  <!-- Solo una etiqueta </body> -->
+  </body>
+</html>

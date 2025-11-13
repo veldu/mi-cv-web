@@ -1,0 +1,406 @@
+/* src/styles/main.css */
+
+/* Reseteo básico y tipografía */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  background: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- 1. Estilos de la Timeline (Acordeón) --- */
+.timeline {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+  position: relative; /* Contenedor padre */
+}
+
+.timeline-title {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #222;
+}
+
+.timeline-container {
+  position: relative;
+  width: 100%;
+}
+
+/* El carril "hueco" (dos líneas) */
+.timeline-track {
+  content: '';
+  position: absolute;
+  /* Ancho total del canal 'hueco' */
+  width: 6px; 
+  /* Fondo blanco para que parezca hueco sobre el fondo gris */
+  background: #f4f4f4; 
+  /* Las dos líneas laterales */
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* El relleno de progreso */
+.timeline-progress {
+  content: '';
+  position: absolute;
+  /* Ancho del relleno (más estrecho que el carril) */
+  width: 2px; 
+  background-color: #61dafb; /* Tu color de acento */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0); /* Empieza con altura 0 */
+  transform-origin: top center; /* Anima desde arriba */
+  z-index: 2; /* Por encima del carril */
+}
+
+/* CADA ITEM (FILA) */
+.timeline-item {
+  position: relative;
+  width: 100%;
+  padding: 4rem 0; /* MÁS SEPARACIÓN */
+  overflow: auto; /* Limpia los floats */
+}
+
+/* El círculo en la línea */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #f4f4f4;
+  border: 3px solid #61dafb;
+  border-radius: 50%;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* LA TARJETA */
+.timeline-card {
+  width: 45%; /* Tarjetas al 45% (casi al margen) */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+
+  /* Estado inicial para la animación de scroll */
+  opacity: 0;
+}
+
+/* Tarjetas IZQUIERDA */
+.timeline-item:nth-child(odd) .timeline-card {
+  float: left;
+  transform: translateX(40px); /* Estado inicial (viene de la derecha) */
+}
+
+/* Tarjetas DERECHA */
+.timeline-item:nth-child(even) .timeline-card {
+  float: right;
+  transform: translateX(-40px); /* Estado inicial (viene de la izquierda) */
+}
+
+/* ESTILOS DE LA TARJETA (NUEVOS) */
+.card-header {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.card-company {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.card-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #61dafb;
+}
+
+/* La nueva descripción oculta */
+.card-description {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: padding 0.3s ease;
+}
+.card-description p {
+  margin: 0 0 1.5rem 0;
+}
+
+/* ESTADO ABIERTO (JS añadirá la clase .is-open) */
+.timeline-card.is-open .card-description {
+  padding-bottom: 20px;
+}
+.timeline-card.is-open .card-cta {
+  display: none;
+}
+
+/* --- 2. Estilos de la Animación 3D (Donut) --- */
+.section-3d-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.canvas-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-3d {
+  position: relative;
+  z-index: 10;
+  color: #333;
+  padding: 2rem;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  padding-left: 5vw;
+}
+
+.text-stack {
+  position: relative;
+  min-height: 150px;
+}
+
+.about-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #333;
+}
+
+.about-text strong {
+  font-weight: 700;
+  color: #000;
+}
+
+/* --- 3. Estilos de la Transición y Contacto --- */
+.next-section {
+  /* Esta clase se aplica a .contact */
+  background: #f4f4f4;
+  position: relative;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact {
+  min-height: 80vh;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* Estado inicial para la transición */
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 5;
+}
+
+.contact-title {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 3rem;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  color: #333;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-origin: center;
+}
+
+.contact-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+/* Estilos para las sub-tarjetas */
+.card-sub-items {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Espacio entre sub-items */
+}
+
+.sub-item {
+  background: #fff; /* Fondo blanco, como una tarjeta */
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  
+  /* Sombra sutil para que "flote" */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+
+  /* Ocultos por defecto para la animación */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.sub-item strong {
+  color: #333;
+}
+
+/* ... (después de tus estilos de .timeline-card) ... */
+
+/* ¡NUEVOS ESTILOS PARA EL CONTENEDOR DE DETALLES! */
+.timeline-details {
+  /* Debe coincidir con el 45% de la tarjeta */
+  width: 45%; 
+  /* Espacio superior para separarlo de la tarjeta */
+  margin-top: 1rem; 
+  
+  /* Oculto por defecto */
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  
+  /* Le damos el mismo fondo que las tarjetas */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 0 20px; /* Padding lateral */
+}
+
+/* Alinear el contenedor de detalles a la IZQUIERDA */
+.timeline-item:nth-child(odd) .timeline-details {
+  float: left;
+}
+
+/* Alinear el contenedor de detalles a la DERECHA */
+.timeline-item:nth-child(even) .timeline-details {
+  float: right;
+}
+
+/* Estilos para el párrafo dentro de los detalles */
+.timeline-details p {
+  margin: 0 0 1.5rem 0;
+  /* Oculto para animar su entrada */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* (Los estilos de .card-sub-items y .sub-item se quedan igual) */
+.card-sub-items {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sub-item {
+  background: #f4f4f4;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(10px);
+}
+/* ... */
+
+.card-description {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: padding 0.3s ease;
+}
+.card-description p {
+  /* Estilos para el párrafo de descripción */
+  margin: 0 0 1.5rem 0;
+}
+
+/* ESTADO ABIERTO (JS añadirá la clase .is-open) */
+.timeline-card.is-open .card-description {
+  padding-top: 20px; /* Añade padding cuando se abre */
+  padding-bottom: 20px;
+}
+.timeline-card.is-open .card-cta {
+  display: none; /* Oculta el "Ver más" */
+}
+
+/* El contenedor de los sub-items */
+.card-sub-items {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* El estilo de las sub-tarjetas (para que parezcan "externas") */
+.sub-item {
+  background: #fff; /* Fondo blanco */
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); /* Sombra */
+
+  /* Ocultos por defecto para la animación */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.sub-item strong {
+  color: #333;
+}
