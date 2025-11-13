@@ -1,0 +1,7 @@
+/* contact.css - estilos de la sección de contacto */
+.next-section{ background:var(--bg); position:relative; z-index:5; opacity:0; pointer-events:none; }
+.contact{ min-height:80vh; width:100%; max-width:900px; margin:0 auto; padding:8rem 2rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; z-index:5; }
+.contact-title{ font-size:5rem; font-weight:700; color:#222; margin-bottom:3rem; transition:transform 0.4s cubic-bezier(0.19,1,0.22,1); }
+.contact-list{ display:flex; flex-direction:column; gap:1.5rem; width:100%; max-width:400px; }
+.contact-item{ display:flex; align-items:center; justify-content:center; padding:1rem 1.5rem; background:var(--card-bg); border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.05); color:var(--text); text-decoration:none; font-size:1.5rem; font-weight:500; transition:transform 0.4s cubic-bezier(0.19,1,0.22,1); transform-origin:center; }
+.contact-icon{ width:1.5rem; height:1.5rem; margin-right:1rem; }

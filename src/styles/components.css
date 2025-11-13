@@ -1,0 +1,63 @@
+/* components.css - tarjetas, botones y elementos reutilizables */
+
+.timeline-card {
+  width: 45%;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.card-header {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.card-company {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.card-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.card-description {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: padding 0.3s ease, opacity 0.25s ease;
+}
+.card-description p { margin: 0 0 1.5rem 0; }
+
+.timeline-card.is-open .card-description{
+  padding-top:20px;
+  padding-bottom:20px;
+  opacity:1;
+  height:auto;
+}
+.timeline-card.is-open .card-cta{ display:none; }
+
+.card-sub-items{ margin-top:1.5rem; display:flex; flex-direction:column; gap:0.75rem; }
+.sub-item{
+  background: var(--card-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  opacity:0; transform:translateY(10px);
+}
+.sub-item strong{ color: #333; }

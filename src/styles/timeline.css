@@ -1,0 +1,35 @@
+/* timeline.css - estilos específicos del timeline / acordeón */
+
+.timeline{
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  padding:8rem 2rem;
+  position:relative;
+}
+
+.timeline-title{
+  font-size:4rem; font-weight:700; text-align:center; margin-bottom:4rem; color:#222;
+}
+
+.timeline-container{ position:relative; width:100%; }
+
+.timeline-track{
+  position:absolute; width:6px; background:var(--bg); border-left:2px solid #ddd; border-right:2px solid #ddd; top:0; bottom:0; left:50%; transform:translateX(-50%); z-index:1;
+}
+
+.timeline-progress{
+  position:absolute; width:2px; background-color:var(--accent); top:0; bottom:0; left:50%; transform:translateX(-50%) scaleY(0); transform-origin:top center; z-index:2;
+}
+
+.timeline-item{ position:relative; width:100%; padding:4rem 0; overflow:auto; }
+.timeline-item::after{ content:''; position:absolute; width:16px; height:16px; background-color:var(--bg); border:3px solid var(--accent); border-radius:50%; top:32px; left:50%; transform:translateX(-50%); z-index:3; }
+
+/* Positioning cards left/right */
+.timeline-item:nth-child(odd) .timeline-card{ float:left; transform:translateX(40px); }
+.timeline-item:nth-child(even) .timeline-card{ float:right; transform:translateX(-40px); }
+
+.timeline-details{ width:45%; margin-top:1rem; height:0; opacity:0; overflow:hidden; background:var(--card-bg); border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.05); padding:0 20px; }
+.timeline-item:nth-child(odd) .timeline-details{ float:left; }
+.timeline-item:nth-child(even) .timeline-details{ float:right; }
+.timeline-details p{ margin:0 0 1.5rem 0; opacity:0; transform:translateY(10px); }

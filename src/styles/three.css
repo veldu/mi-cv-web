@@ -1,0 +1,7 @@
+/* three.css - estilos para la sección 3D / canvas */
+.section-3d-container{ height:100vh; width:100%; position:relative; }
+.canvas-holder{ position:absolute; top:0; left:0; width:100%; height:100%; display:flex; justify-content:center; align-items:center; }
+.content-3d{ position:relative; z-index:10; color:var(--text); padding:2rem; max-width:400px; display:flex; align-items:center; padding-left:5vw; }
+.text-stack{ position:relative; min-height:150px; }
+.about-text{ position:absolute; top:0; left:0; opacity:0; font-size:2rem; font-weight:300; line-height:1.4; color:var(--text); }
+.about-text strong{ font-weight:700; color:#000; }
